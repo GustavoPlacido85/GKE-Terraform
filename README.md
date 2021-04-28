@@ -31,3 +31,48 @@ Instalar GKE con Terraform
     -Buscar la API del producto que se necesita activar y listo.
     -En este caso el API que necesita activar es la de fds
     
+    
+5.- Instalar terraform
+    Instalar la version terraform 0.12.5
+    Para facilitar el manejo de versiones instalar tfswitch
+    curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
+    Luego llamar el comando tfswitch en consola, seleccionar la version y listo
+    Manual de instalacion https://medium.com/@warrensbox/how-to-manage-different-terraform-versions-for-each-project-51cca80ccece
+    
+6.- Instalar GKE
+    Crear Bucket
+    Crear un bucket en Storage con el nombre que deseas, el nombre debe ser unico.
+    Editar gke/backend.tf
+    Abrir el archivo gke/backend.tf
+    Editar la opcion bucket, por el nombre de bucket que creaste en el paso anterior.
+    En la opcion credentials anadir la direccion del archivo de credenciales que te descargaste al crear el service account.
+    Editar gke/main.tf
+    Abrir el archivo gke/main.tf
+    Editar la opcion credentials con lo mismo que colocaste en el archivo backend.tf
+    Editar el nombre del proyecto, por el que hayas creado en los pasos anteriores.
+    
+7.- Instalar Gcloud para obtener las credenciales
+    En linux lo puedes instalar con:
+        apt-get install gcloud
+    Autenticarse con el correo que creo la cuenta de Google Cloud Plataform
+        gcloud auth login
+    Una vez instalado colocarse dentro de la carpeta gke y ejecutar los siguientes comandos:
+        sudo terraform init
+        sudo terraform apply
+    Despues del ultimo comando aceptar el apply colocando yes, y dejamos que magia de terraform haga su trabajo
+    Luego de Instalar ejecutar el siguiente comando para traer las credenciales del Kubernertes creado
+        gcloud container clusters get-credentials default-cloudgoec-course-gke --zone us-east4-a --project cloudgoec
+        
+8.- Instalar Kubectl para acceder al cluster
+    Para instalar el kubectl ejecutar los siguientes comandos
+        curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl
+        chmod +x ./kubectl
+        sudo mv ./kubectl /usr/local/bin/kubectl        
+        
+9.- Ver los nodos del cluster
+        kubectl get nodes        
+    
+    
+10.-Para eliminar todo lo creado con terraform ejecuta el siguiente comando
+        sudo terraform destroy    
+    
