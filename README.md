@@ -23,3 +23,11 @@ Instalar GKE con Terraform
       Storage Admin
     Una vez terminado el service account, debera aparecer en la lista, damos click en los tres puntitos de la seccion actions y se debe seleccionar create key,         selecciona JSON y posteriormente se le descargara la llave, llave que permitira a terraform conectar con GCP crear recursos.
     
+    
+    
+4.- Activar las APIS de Google
+    -Se deben activar las Apis de Google para el uso de cada producto, para esto se debe acceder al menu principal y seleccionar APIs & Services
+    -En la parte super dar click en la opcion Enable APIS and Services.
+    -Buscar la API del producto que se necesita activar y listo.
+    -En este caso el API que necesita activar es la de fds
+    
