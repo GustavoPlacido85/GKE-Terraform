@@ -40,9 +40,9 @@ Instalar GKE con Terraform
 
     Instalar la version terraform 0.12.5
     Para facilitar el manejo de versiones instalar tfswitch
-    curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
+        curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
     Luego llamar el comando tfswitch en consola, seleccionar la version y listo
-    Manual de instalacion https://medium.com/@warrensbox/how-to-manage-different-terraform-versions-for-each-project-51cca80ccece
+        Manual de instalacion https://medium.com/@warrensbox/how-to-manage-different-terraform-versions-for-each-project-51cca80ccece
     
 6.- Instalar GKE
 
@@ -51,7 +51,7 @@ Instalar GKE con Terraform
     Editar gke/backend.tf
     Abrir el archivo gke/backend.tf
     Editar la opcion bucket, por el nombre de bucket que creaste en el paso anterior.
-    En la opcion credentials anadir la direccion del archivo de credenciales que te descargaste al crear el service account.
+    En la opcion credentials añadir la direccion del archivo de credenciales que te descargaste al crear el service account.
     Editar gke/main.tf
     Abrir el archivo gke/main.tf
     Editar la opcion credentials con lo mismo que colocaste en el archivo backend.tf
@@ -59,15 +59,14 @@ Instalar GKE con Terraform
     
 7.- Instalar Gcloud para obtener las credenciales
 
-    En linux lo puedes instalar con:
+    Para linux instalar con:
         apt-get install gcloud
     Autenticarse con el correo que creo la cuenta de Google Cloud Plataform
         gcloud auth login
-    Una vez instalado colocarse dentro de la carpeta gke y ejecutar los siguientes comandos:
+    Una vez instalado, dentro de la carpeta gke ejecutar los siguientes comandos:
         sudo terraform init
         sudo terraform apply
-    Despues del ultimo comando aceptar el apply colocando yes, y dejamos que magia de terraform haga su trabajo
-    Luego de Instalar ejecutar el siguiente comando para traer las credenciales del Kubernertes creado
+    Luego de instalar ejecutar el siguiente comando para traer las credenciales del Kubernertes creado
         gcloud container clusters get-credentials default-cloudgoec-course-gke --zone us-east4-a --project cloudgoec
         
 8.- Instalar Kubectl para acceder al cluster
@@ -82,7 +81,7 @@ Instalar GKE con Terraform
         kubectl get nodes        
     
     
-10.-Para eliminar todo lo creado con terraform ejecuta el siguiente comando
+10.-Si desea eliminar todo lo creado con terraform ejecuta el siguiente comando
         
         sudo terraform destroy    
     
